@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1010 450" font-family="Arial, sans-serif">
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+<marker id="b" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker></defs>
+<rect width="1010" height="450" fill="#ffffff"/>
+<text x="505" y="34" text-anchor="middle" font-size="20" font-weight="bold" fill="#0f172a">How the SQL agent answers a question safely</text>
+<rect x="20" y="70" width="170" height="130" rx="10" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="105" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">1  ASK</text>
+<text x="105" y="130" text-anchor="middle" font-size="14" fill="#0f172a">Natural-language</text>
+<text x="105" y="152" text-anchor="middle" font-size="14" fill="#0f172a">question, e.g.</text>
+<text x="105" y="174" text-anchor="middle" font-size="14" fill="#0f172a">"Top 3 products?"</text>
+<path d="M190,135 H220" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"/>
+<rect x="220" y="70" width="170" height="130" rx="10" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"/>
+<text x="305" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">2  THINK</text>
+<text x="305" y="130" text-anchor="middle" font-size="14" fill="#0f172a">Claude picks a tool</text>
+<text x="305" y="152" text-anchor="middle" font-size="14" fill="#0f172a">and reads the result</text>
+<text x="305" y="174" text-anchor="middle" font-size="14" fill="#0f172a">(max 8 steps)</text>
+<path d="M390,135 H420" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"/>
+<rect x="420" y="70" width="170" height="130" rx="10" fill="#dcfce7" stroke="#15803d" stroke-width="3"/>
+<text x="505" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">3  CHECK</text>
+<text x="505" y="130" text-anchor="middle" font-size="14" fill="#0f172a">Input types valid</text>
+<text x="505" y="152" text-anchor="middle" font-size="14" fill="#0f172a">One SELECT, no writes</text>
+<text x="505" y="174" text-anchor="middle" font-size="14" fill="#0f172a">Row limit 1000</text>
+<path d="M590,135 H620" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"/>
+<rect x="620" y="70" width="170" height="130" rx="10" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+<text x="705" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">4  RUN</text>
+<text x="705" y="130" text-anchor="middle" font-size="14" fill="#0f172a">Read-only SQLite</text>
+<text x="705" y="152" text-anchor="middle" font-size="14" fill="#0f172a">5 second timeout</text>
+<text x="705" y="174" text-anchor="middle" font-size="14" fill="#0f172a">(synthetic data)</text>
+<path d="M790,135 H820" stroke="#334155" stroke-width="3" fill="none" marker-end="url(#a)"/>
+<rect x="820" y="70" width="170" height="130" rx="10" fill="#e2e8f0" stroke="#334155" stroke-width="3"/>
+<text x="905" y="100" text-anchor="middle" font-size="18" font-weight="bold" fill="#0f172a">5  ANSWER</text>
+<text x="905" y="130" text-anchor="middle" font-size="14" fill="#0f172a">Text, chart</text>
+<text x="905" y="152" text-anchor="middle" font-size="14" fill="#0f172a">or CSV file</text>
+<text x="905" y="174" text-anchor="middle" font-size="14" fill="#0f172a">back to the user</text>
+<path d="M505,200 V240 H305 V204" stroke="#b91c1c" stroke-width="3" stroke-dasharray="8 5" fill="none" marker-end="url(#b)"/>
+<text x="405" y="266" text-anchor="middle" font-size="14" fill="#b91c1c">blocked: error goes back</text>
+<path d="M705,200 V310 H305 V204" stroke="#b91c1c" stroke-width="3" stroke-dasharray="8 5" fill="none" marker-end="url(#b)"/>
+<text x="505" y="336" text-anchor="middle" font-size="14" fill="#b91c1c">result rows go back to Claude</text>
+<rect x="20" y="360" width="970" height="70" rx="10" fill="#f1f5f9" stroke="#334155" stroke-width="2"/>
+<text x="505" y="388" text-anchor="middle" font-size="15" fill="#0f172a">Every run is saved as a JSON trace: steps, tool calls, tokens, cost, latency.</text>
+<text x="505" y="412" text-anchor="middle" font-size="15" fill="#0f172a">Nothing that changes data can run: the guard blocks it and the database is read-only.</text>
+</svg>

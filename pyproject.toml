@@ -1,0 +1,14 @@
+[project]
+name = "text-to-sql-agent-guardrails"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["sqlglot>=25", "pydantic>=2", "anthropic>=0.40", "matplotlib>=3.8"]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
